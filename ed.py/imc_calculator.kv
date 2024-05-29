@@ -1,0 +1,120 @@
+<FloatLayout>:
+    # Logo
+    Image:
+        source: 'logo.jpeg'
+        size_hint: None, None
+        size: 150, 150
+        pos_hint: {'center_x': 0.9, 'top': 1}
+
+    # Title Image
+    Image:
+        source: 'titulo.jpeg'
+        size_hint: None, None
+        size: 300, 300
+        pos_hint: {'center_x': 0.5, 'top': 1.1}
+
+    # IMC Image
+    Image:
+        source: 'imc.jpeg'
+        size_hint: None, None
+        size: 500, 500
+        pos_hint: {'center_x': 0.5, 'top': 1.10}
+
+    Label:
+        id: imc_category_label
+        text: "CATEGORIA:"
+        color: 0.4, 0.8, 0.4, 1
+        font_size: 20
+        bold: True
+        size_hint: None, None
+        size: 400, 50
+        pos_hint: {'center_x': 0.3, 'top': 0.65}
+
+    Label:
+        id: imc_value_label
+        text: "IMC:"
+        color: 0.4, 0.8, 0.4, 1
+        font_size: 20
+        bold: True
+        size_hint: None, None
+        size: 400, 50
+        pos_hint: {'center_x': 0.7, 'top': 0.65}
+
+    Label:
+        id: detalhes_label
+        text: ""
+        color: 0, 0, 0, 1
+        font_size: 20
+        size_hint: None, None
+        size: 400, 50
+        pos_hint: {'center_x': 0.5, 'top': 0.55}
+
+    TextInput:
+        id: altura_input
+        hint_text: "ALTURA (m)"
+        font_size: 18
+        multiline: False
+        background_color: 0.8, 1, 0.8, 1
+        size_hint: None, None
+        size: 380, 50
+        pos_hint: {'center_x': 0.5, 'top': 0.50}
+
+    TextInput:
+        id: peso_input
+        hint_text: "PESO (kg)"
+        font_size: 18
+        multiline: False
+        background_color: 0.8, 1, 0.8, 1
+        size_hint: None, None
+        size: 380, 50
+        pos_hint: {'center_x': 0.5, 'top': 0.40}
+
+    Button:
+        id: gender_button
+        text: "GÊNERO"
+        size_hint: None, None
+        size: 380, 50
+        background_color: 0.8, 1, 0.8, 1
+        pos_hint: {'center_x': 0.5, 'top': 0.30}
+        on_release: app.root.ids.gender_dropdown.open(self)
+
+    DropDown:
+        id: gender_dropdown
+        on_select: app.on_select(args[1])
+        Button:
+            text: "Masculino"
+            size_hint_y: None
+            height: 44
+            background_color: 0.8, 1, 0.8, 1
+            on_release: app.root.ids.gender_dropdown.select(self.text)
+
+        Button:
+            text: "Feminino"
+            size_hint_y: None
+            height: 44
+            background_color: 0.8, 1, 0.8, 1
+            on_release: app.root.ids.gender_dropdown.select(self.text)
+
+        Button:
+            text: "Prefiro Não Informar"
+            size_hint_y: None
+            height: 44
+            background_color: 0.8, 1, 0.8, 1
+            on_release: app.root.ids.gender_dropdown.select(self.text)
+
+    Label:
+        id: warning_label
+        text: ""
+        color: 1, 0, 0, 1
+        font_size: 14
+        size_hint: None, None
+        size: 380, 30
+        pos_hint: {'center_x': 0.5, 'top': 0.25}
+
+    Button:
+        text: "CALCULAR"
+        size_hint: None, None
+        size: 380, 50
+        background_color: 0.4, 0.5, 0.6, 1
+        pos_hint: {'center_x': 0.5, 'top': 0.15}
+        on_press: app.calcular_imc(self)
