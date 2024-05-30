@@ -62,7 +62,7 @@ FloatLayout:
         multiline: False
         background_color: 0.56, 0.93, 0.56, 1
         size_hint: None, None
-        size: 380, 50
+        size: 250, 50
         pos_hint: {'center_x': 0.5, 'top': 0.50}
 
     TextInput:
@@ -72,14 +72,14 @@ FloatLayout:
         multiline: False
         background_color: 0.56, 0.93, 0.56, 1
         size_hint: None, None
-        size: 380, 50
+        size: 250, 50
         pos_hint: {'center_x': 0.5, 'top': 0.40}
 
     Button:
         id: gender_button
         text: "GÊNERO"
         size_hint: None, None
-        size: 380, 50
+        size: 250, 50
         background_color: 0.56, 0.93, 0.56, 1
         pos_hint: {'center_x': 0.5, 'top': 0.30}
         on_release: app.gender_dropdown.open(self)
@@ -90,14 +90,22 @@ FloatLayout:
         color: 1, 0, 0, 1
         font_size: 14
         size_hint: None, None
-        size: 380, 30
+        size: 250, 30
         pos_hint: {'center_x': 0.5, 'top': 0.25}
 
     Button:
         text: "CALCULAR"
         size_hint: None, None
-        size: 380, 50
+        size: 100, 50
         background_color: 0.4, 0.5, 0.6, 1
-        pos_hint: {'center_x': 0.5, 'top': 0.15}
+        pos_hint: {'center_x': 0.35, 'top': 0.15}
         on_press: app.calcular_imc()
+
+    Button:
+        text: "LIMPAR"
+        size_hint: None, None
+        size: 100, 50
+        background_color: 0.4, 0.5, 0.6, 1
+        pos_hint: {'center_x': 0.65, 'top': 0.15}
+        on_press: app.clear_inputs()
 
